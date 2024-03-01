@@ -280,3 +280,60 @@ tbody tr:nth-child(even) {
   background-color: #FAF3E8;
 }
 }
+.hadith-box{
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding: 15px 10px 10px 15px;
+}
+
+#title-head{
+  font-size: 18px;
+  font-weight: 500;
+  color: #CE7500;
+}
+#hadith-head{
+  font-size: 18px;
+  font-weight: 500;
+  color: #CE7500;
+}
+#title{
+  margin-top: -15px;
+}
+#title::first-letter{
+  color: black;
+  font-weight: 500;
+  font-size: 17px;
+}
+#hadith{
+  margin-top: -15px;
+  font-size: 18px;
+}
+#explain{
+  margin-top: 0;
+  margin-left: 10px;
+  font-size: 17px;
+}
+.exp{
+  color: #CE7500;
+}
+.next-sec{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.next-hadith{
+  height: 40px;
+  width: 200px;
+  padding: 5px 10px;
+  border: none;
+  display: inline-block;
+  border-radius: 10px;
+  background: rbg(220,220,220);
+  color: black;
+  font-size: 20px;
+  margin: 10px auto 0 auto;
+}
+.next-hadith:active{
+  background: black;
+  color: white;
+}
