@@ -163,12 +163,11 @@ async function getPrayerTime(latitude="28.7464694",longitude="77.2848343"){
     nextPrayer.textContent = "Tahajjud"
     nextPTime.textContent = timeArray.Lastthird.slice(0,6)+"min";
   }
-  if(totalMinutes>=totalFirstthirdMinutes){
+  if(totalMinutes>=totalFirstthirdMinutes || totalMinutes<=totalMidnightMinutes){
     currentPrayer.textContent = "Night"
     let hour = date.getHours();
     let minutes = date.getMinutes();
     prayerTime.textContent = hour+":"+minutes;
-    
     nextPrayer.textContent = "Tahajjud"
     nextPTime.textContent = timeArray.Lastthird.slice(0,6)+"min";
   }
@@ -194,3 +193,29 @@ function showPosition(position) {
 getLocation()
 
 //Hadith 
+let title = document.getElementById('title');
+let hadith = document.getElementById('hadith');
+let explain = document.getElementById('explain');
+let nextHadith = document.querySelector('.next-hadith');
+
+async function getHadith(){
+  let randomId = Math.floor(Math.random()*3+1);
+  const url = `https://hadeethenc.com/api/v1/hadeeths/list/?language=ur&category_id=${randomId}&page=1&per_page=600`
+  const data = await fetch(url);
+  const response = await data.json();
+  let randomHadith = Math.floor(Math.random()*response.data.length);
+  let hadithId = Number.parseInt(response.data[randomHadith].id);
+  const url2 = `https://hadeethenc.com/api/v1/hadeeths/one/?language=ur&id=${hadithId}`
+  const data2 = await fetch(url2);
+  const response2 = await data2.json();
+  title.textContent = response2.title;
+  hadith.textContent = response2.hadeeth;
+  explain.textContent = response2.explanation;
+  console.log(response2)
+}
+getHadith()
+
+nextHadith.addEventListener('click',(e)=>{
+  e.preventDefault();
+  getHadith();
+})
