@@ -219,3 +219,19 @@ nextHadith.addEventListener('click',(e)=>{
   e.preventDefault();
   getHadith();
 })
+//Box Alert Start
+let alertBox = document.getElementById('box-alert');
+let alertClose = document.getElementById('alert-close');
+setTimeout(()=>{
+  alertBox.style.display = "flex";
+},5000)
+
+const autoClose = setTimeout(()=>{
+  alertBox.style.display = "none";
+},15000)
+
+alertClose.addEventListener('click',()=>{
+  alertBox.style.display = "none";
+  clearTimeout(autoClose)
+})
+//Box Alert End
