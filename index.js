@@ -20,7 +20,7 @@ let days = ["Sunday","Monday","Tuesday","Wednesday","Thirsday","Friday","Saturda
 let months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
 
 let date = new Date();
-dateUpdate.textContent = `${days[date.getDay()-1]}, ${date.getDate()} ${months[date.getMonth()]}`
+dateUpdate.textContent = `${days[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]}`
 
 let arabic = new Intl.DateTimeFormat('ar-TN-u-ca-islamic', {day: 'numeric', month: 'long',weekday: 'long',year : 'numeric'}).format(Date.now());
 arabicDate.textContent = arabic;
